@@ -5,13 +5,13 @@
 На данный момент есть тесты для:
 - Модуль 1
 
-    -[x] ISP
+    - [x] ISP
 
-    -[ ] HQ-RTR
+    - [ ] HQ-RTR
 
-    -[ ] BR-RTR
+    - [ ] BR-RTR
 
-    -[x] HQ-SRV
+    - [x] HQ-SRV
 
     -[x] BR-SRV
 
@@ -30,4 +30,3 @@
     -[ ] BR-SRV
 
     -[ ] HQ-CLI
-    
