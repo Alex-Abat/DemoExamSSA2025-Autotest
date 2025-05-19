@@ -13,20 +13,20 @@
 
     - [x] HQ-SRV
 
-    -[x] BR-SRV
+    - [x] BR-SRV
 
-    -[ ] HQ-CLI
+    - [ ] HQ-CLI
 
 - Модуль 2
 
-    -[ ] ISP
+    - [ ] ISP
 
-    -[ ] HQ-RTR
+    - [ ] HQ-RTR
 
-    -[ ] BR-RTR
+    - [ ] BR-RTR
 
-    -[ ] HQ-SRV
+    - [ ] HQ-SRV
 
-    -[ ] BR-SRV
+    - [ ] BR-SRV
 
-    -[ ] HQ-CLI
+    - [ ] HQ-CLI
