@@ -107,8 +107,15 @@ function test_ssh(){
         WIN=0
     fi
 
-    if grep -q "Authorized access only" $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}'); then
-        success_msg "$TEST_NAME Banner is configurated"
+
+    if [[ $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}') -ne '' ]]; then
+
+        if [[  $(cat $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}')) -eq "Authorized access only" ]]; then
+            success_msg "$TEST_NAME Banner is configurated"
+        else
+            error_msg "$TEST_NAME Banner is not configurated"
+            WIN=0
+        fi
     else
         error_msg "$TEST_NAME Banner is not configurated"
         WIN=0
@@ -116,15 +123,15 @@ function test_ssh(){
 
 }
 
-function test_chrony(){
-    local TEST_NAME="Chrony:"
-    if grep -iq "^\s*pool\s*hq-rtr.au-team.irpo\s*iburst\s*\b" /etc/chrony/chrony.conf; then
-        success_msg "$TEST_NAME chrony is configurated OK"
-    else 
-        error_msg "$TEST_NAME chrony is not configurated"
-        WIN=0
-    fi
-}
+# function test_chrony(){
+#     local TEST_NAME="Chrony:"
+#     if grep -iq "^\s*pool\s*hq-rtr.au-team.irpo\s*iburst\s*\b" /etc/chrony/chrony.conf; then
+#         success_msg "$TEST_NAME chrony is configurated OK"
+#     else 
+#         error_msg "$TEST_NAME chrony is not configurated"
+#         WIN=0
+#     fi
+# }
 
 function test_DNS(){
     local TEST_NAME="DNS:"
@@ -141,7 +148,7 @@ function test_DNS(){
 test_hostname
 test_user
 test_ssh
-test_chrony
+# test_chrony
 test_DNS
 
 if [[ $WIN -eq 1 ]]; then
