@@ -1,4 +1,4 @@
-Beginning of HQ-SRV testing: Mon 19 May 2025 04:36:12 PM MSK
+Beginning of HQ-SRV testing: Mon 19 May 2025 04:59:21 PM MSK
 Hostname: Wrong hostname
 this hostname is:
 clover-dev
@@ -9,5 +9,5 @@ SSH PORT is:/n#Port 22
 SSH: Not allowed to connect only to sshuser user
 SSH: Not restricted number of entry attempts up to 2
 #MaxAuthTries 6
-SSH: Banner is not configurated
+DNS: DNS is not configurated
 Host HQ-SRV is not customized, read log

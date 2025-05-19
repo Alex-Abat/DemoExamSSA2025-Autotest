@@ -108,9 +108,9 @@ function test_ssh(){
     fi
 
 
-    if [[ $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}') -ne '' ]]; then
+    if [[ $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}') != '' ]]; then
 
-        if [[  $(cat $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}')) -eq "Authorized access only" ]]; then
+        if [[  $(cat $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}')) == "Authorized access only" ]]; then
             success_msg "$TEST_NAME Banner is configurated"
         else
             error_msg "$TEST_NAME Banner is not configurated"
@@ -135,8 +135,10 @@ function test_ssh(){
 
 function test_DNS(){
     local TEST_NAME="DNS:"
-    nslookup hq-cli > /dev/null
-    if [[ $? -eq 1 ]]; then
+    local HOST="hq-cli"
+    # nslookup hq-cli > /dev/null
+    # ping -n 3 -q hq-cli > /dev/null 2>&1
+    if ping -c 2 -W 2 -q $HOST > /dev/null 2>&1; then
         success_msg "$TEST_NAME DNS is configurated"
     else
         error_msg "$TEST_NAME DNS is not configurated"

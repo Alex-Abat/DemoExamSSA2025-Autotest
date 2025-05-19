@@ -106,9 +106,9 @@ function test_ssh(){
         WIN=0
     fi
 
-    if [[ $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}') -ne '' ]]; then
+    if [[ $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}') != '' ]]; then
 
-        if [[  $(cat $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}')) -eq "Authorized access only" ]]; then
+        if [[  $(cat $(grep -i "^\s*banner" /etc/ssh/sshd_config | awk '{print $2}')) == "Authorized access only" ]]; then
             success_msg "$TEST_NAME Banner is configurated"
         else
             error_msg "$TEST_NAME Banner is not configurated"
